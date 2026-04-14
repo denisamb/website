@@ -1,1 +1,1490 @@
-# website
+html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapiena | Elite Tech Recruiting</title>
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap)" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --dark-primary: #0B0F1A;
+            --dark-secondary: #121826;
+            --white: #FFFFFF;
+            --light-grey: #F8FAFC;
+            --accent-blue: #4F8CFF;
+            --accent-violet: #8A7CFF;
+            --text-grey: #64748B;
+            --text-dark: #1E293B;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.2;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: background 0.3s ease;
+        }
+        nav.scrolled {
+            background: rgba(11, 15, 26, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--accent-blue);
+        }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--white);
+        }
+        .nav-cta {
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover {
+            background: #3D7AED;
+            transform: translateY(-2px);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-primary) 0%, var(--dark-secondary) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(79, 140, 255, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(138, 124, 255, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79, 140, 255, 0.1);
+            border: 1px solid rgba(79, 140, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 32px;
+        }
+        .hero-badge span {
+            color: var(--accent-blue);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            max-width: 480px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        .btn-primary {
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover {
+            background: #3D7AED;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(79, 140, 255, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+        }
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(79, 140, 255, 0.2), rgba(138, 124, 255, 0.2));
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-stats {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: var(--white);
+            padding: 24px 32px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        .hero-stats-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent-blue);
+        }
+        .hero-stats-label {
+            font-size: 14px;
+            color: var(--text-grey);
+            font-weight: 500;
+        }
+        /* Value Section */
+        .value-section {
+            background: var(--white);
+            padding: 120px 0;
+        }
+        .value-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+        .section-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .value-section h2 {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+        .value-section h2 span {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .value-section p {
+            font-size: 20px;
+            color: var(--text-grey);
+            line-height: 1.8;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .metric-card {
+            text-align: center;
+            padding: 48px 32px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #F8FAFC, #FFFFFF);
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        }
+        .metric-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 64px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .metric-label {
+            font-size: 18px;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .metric-sublabel {
+            font-size: 14px;
+            color: var(--text-grey);
+        }
+        /* Services Section */
+        .services-section {
+            background: var(--white);
+            padding: 0 0 120px;
+        }
+        .services-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+        .services-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .services-section > .container > p {
+            font-size: 18px;
+            color: var(--text-grey);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 48px 36px;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+        .service-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+        .service-icon.blue {
+            background: linear-gradient(135deg, rgba(79, 140, 255, 0.15), rgba(79, 140, 255, 0.05));
+        }
+        .service-icon.violet {
+            background: linear-gradient(135deg, rgba(138, 124, 255, 0.15), rgba(138, 124, 255, 0.05));
+        }
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+        .service-card p {
+            font-size: 16px;
+            color: var(--text-grey);
+            line-height: 1.7;
+        }
+        /* Why Sapiena Section */
+        .why-section {
+            background: var(--light-grey);
+            padding: 120px 0;
+        }
+        .why-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+        .why-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .why-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            gap: 24px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .why-card:hover {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border-color: rgba(79, 140, 255, 0.2);
+        }
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .why-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--white);
+        }
+        .why-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        .why-content p {
+            font-size: 16px;
+            color: var(--text-grey);
+            line-height: 1.7;
+        }
+        /* Process Section */
+        .process-section {
+            background: var(--dark-primary);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center top, rgba(79, 140, 255, 0.1) 0%, transparent 50%);
+        }
+        .process-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 1;
+        }
+        .process-section .section-label {
+            color: var(--accent-blue);
+        }
+        .process-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .process-section .process-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .process-card {
+            text-align: center;
+            position: relative;
+        }
+        .process-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            position: relative;
+        }
+        .process-number span {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--white);
+        }
+        .process-number::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid rgba(79, 140, 255, 0.3);
+        }
+        .process-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+        .process-card p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .process-line {
+            position: absolute;
+            top: 40px;
+            left: calc(33.33% + 40px);
+            width: calc(33.33% - 80px);
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-violet));
+            opacity: 0.3;
+        }
+        .process-line:last-of-type {
+            left: calc(66.66% + 40px);
+        }
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--white);
+            padding: 120px 0;
+        }
+        .testimonials-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+        .testimonials-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+        }
+        .testimonial-stars svg {
+            width: 20px;
+            height: 20px;
+            color: #FBBF24;
+            fill: #FBBF24;
+        }
+        .testimonial-card blockquote {
+            font-size: 17px;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 28px;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .testimonial-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .testimonial-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .testimonial-info p {
+            font-size: 14px;
+            color: var(--text-grey);
+        }
+        /* Roles Section */
+        .roles-section {
+            background: var(--white);
+            padding: 0 0 120px;
+        }
+        .roles-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+        .roles-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .roles-section .roles-header p {
+            font-size: 18px;
+            color: var(--text-grey);
+        }
+        .roles-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .role-tag {
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .role-tag.blue {
+            background: rgba(79, 140, 255, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(79, 140, 255, 0.2);
+        }
+        .role-tag.blue:hover {
+            background: rgba(79, 140, 255, 0.15);
+        }
+        .role-tag.violet {
+            background: rgba(138, 124, 255, 0.1);
+            color: var(--accent-violet);
+            border: 1px solid rgba(138, 124, 255, 0.2);
+        }
+        .role-tag.violet:hover {
+            background: rgba(138, 124, 255, 0.15);
+        }
+        .role-tag.dark {
+            background: var(--dark-primary);
+            color: var(--white);
+            border: 1px solid var(--dark-secondary);
+        }
+        .role-tag.dark:hover {
+            background: var(--dark-secondary);
+        }
+        /* Engagement Models Section */
+        .engagement-section {
+            background: var(--white);
+            padding: 0 0 120px;
+        }
+        .engagement-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+        .engagement-section h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .engagement-card {
+            background: var(--white);
+            padding: 48px 36px;
+            border-radius: 20px;
+            border: 2px solid #E2E8F0;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .engagement-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+        .engagement-card.featured {
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 60px rgba(79, 140, 255, 0.15);
+        }
+        .engagement-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .engagement-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        .engagement-card .price {
+            font-size: 18px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .engagement-card p {
+            font-size: 16px;
+            color: var(--text-grey);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .engagement-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        .engagement-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 15px;
+            color: var(--text-dark);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .engagement-features li:last-child {
+            border-bottom: none;
+        }
+        .engagement-features svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-blue);
+            min-width: 20px;
+        }
+        .engagement-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .engagement-btn.primary {
+            background: var(--accent-blue);
+            color: var(--white);
+        }
+        .engagement-btn.primary:hover {
+            background: #3D7AED;
+        }
+        .engagement-btn.secondary {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid #E2E8F0;
+        }
+        .engagement-btn.secondary:hover {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark-primary);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 140, 255, 0.1) 0%, transparent 50%);
+        }
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 124, 255, 0.08) 0%, transparent 50%);
+        }
+        .cta-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-section h2 {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+        .cta-section p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        /* Footer */
+        footer {
+            background: var(--dark-secondary);
+            padding: 80px 0 40px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-brand .logo {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .footer-column ul {
+            list-style: none;
+        }
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover {
+            color: var(--white);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background: var(--accent-blue);
+        }
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .hero-image {
+                order: -1;
+            }
+            .metrics-grid,
+            .services-grid,
+            .testimonials-grid,
+            .engagement-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .process-line {
+                display: none;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .value-section h2,
+            .services-section h2,
+            .why-section h2,
+            .process-section h2,
+            .testimonials-section h2,
+            .roles-section h2,
+            .engagement-section h2,
+            .cta-section h2 {
+                font-size: 36px;
+            }
+            .metrics-grid,
+            .services-grid,
+            .testimonials-grid,
+            .engagement-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Sapiena<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#roles">Roles</a></li>
+                <li><a href="#testimonials">Results</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Start Hiring</a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>Elite Tech Recruiting</span>
+                    </div>
+                    <h1>We find the <span class="highlight">right people</span> for your most important roles</h1>
+                    <p class="hero-subtitle">Sapiena partners with ambitious tech companies to identify, attract, and secure transformational talent that drives real business impact.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">
+                            Schedule a Call
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                        <a href="#process" class="btn-secondary">See How It Works</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-wrapper">
+                        <img src="[images.unsplash.com](https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop)" alt="Team collaborating">
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stats-number">94%</div>
+                        <div class="hero-stats-label">Placement retention rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Value Section -->
+    <section class="value-section">
+        <div class="container">
+            <div class="value-content">
+                <span class="section-label">Our Philosophy</span>
+                <h2>Not volume. <span>Precision.</span></h2>
+                <p>We don't flood your inbox with resumes. We deliver a curated shortlist of exceptional candidates who match your technical requirements, culture, and growth trajectory.</p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">18</div>
+                    <div class="metric-label">Days Average</div>
+                    <div class="metric-sublabel">Time to first qualified candidate</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">94%</div>
+                    <div class="metric-label">Retention Rate</div>
+                    <div class="metric-sublabel">Placements still thriving at 12 months</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">3.2</div>
+                    <div class="metric-label">Candidates</div>
+                    <div class="metric-sublabel">Average interviews before hire</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="services-header">
+                <span class="section-label">What We Do</span>
+                <h2>Recruiting solutions built for scale</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="#4F8CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                    </div>
+                    <h3>Executive Search</h3>
+                    <p>C-suite and VP-level placements for engineering, product, and data leadership roles. Discreet, thorough, and strategic.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon violet">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="#8A7CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Team Build-Out</h3>
+                    <p>Rapidly scale your engineering or product team with embedded recruiting support. We become an extension of your talent function.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="#4F8CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
+                    <h3>Retained Search</h3>
+                    <p>For critical hires that demand deep market mapping, competitive intelligence, and white-glove candidate experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Sapiena Section -->
+    <section class="why-section">
+        <div class="container">
+            <div class="why-header">
+                <span class="section-label">Why Sapiena</span>
+                <h2>Built different. On purpose.</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <div class="why-content">
+                        <h3>Deep Technical Fluency</h3>
+                        <p>Our team includes former engineers and technical hiring managers. We speak the language and understand the nuances of technical roles.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div class="why-content">
+                        <h3>Candidate-Centric Process</h3>
+                        <p>Top talent has options. We create compelling, respectful experiences that convert passive candidates into enthusiastic hires.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div class="why-content">
+                        <h3>Quality Over Quantity</h3>
+                        <p>We present 3-5 exceptional candidates, not 30 mediocre ones. Every resume we send is worth your time.</p>
+                    </div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="why-content">
+                        <h3>Speed Without Shortcuts</h3>
+                        <p>Our refined process delivers qualified candidates in days, not weeks—without compromising on fit or quality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Process Section -->
+    <section class="process-section" id="process">
+        <div class="container">
+            <div class="process-header">
+                <span class="section-label">Our Process</span>
+                <h2>Simple. Transparent. Effective.</h2>
+                <p>A streamlined approach designed to move fast while getting the details right.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number"><span>1</span></div>
+                    <h3>Discovery Call</h3>
+                    <p>We dive deep into your role requirements, team dynamics, technical stack, and what makes your company compelling to top talent.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number"><span>2</span></div>
+                    <h3>Targeted Outreach</h3>
+                    <p>We tap our network and conduct precision sourcing to identify candidates who match your criteria—not just on paper, but in practice.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number"><span>3</span></div>
+                    <h3>Curated Shortlist</h3>
+                    <p>You receive a vetted shortlist with detailed candidate profiles, our assessment notes, and interview recommendations within 2-3 weeks.</p>
+                </div>
+                <div class="process-line"></div>
+                <div class="process-line"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <span class="section-label">Client Results</span>
+                <h2>Trusted by ambitious teams</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <blockquote>"Sapiena found us a VP of Engineering in 3 weeks that we'd been searching for 6 months. Their network and process are unmatched."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MK</div>
+                        <div class="testimonial-info">
+                            <h4>Maya Krishnan</h4>
+                            <p>CEO, Vertex AI</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <blockquote>"Every candidate they sent was someone we genuinely wanted to hire. That's never happened with a recruiting firm before."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JL</div>
+                        <div class="testimonial-info">
+                            <h4>James Liu</h4>
+                            <p>CTO, Amplitude</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <blockquote>"We scaled our ML team from 4 to 16 in 6 months with Sapiena. Quality stayed consistently high throughout."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SR</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Rodriguez</h4>
+                            <p>Head of ML, Stripe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Roles Section -->
+    <section class="roles-section" id="roles">
+        <div class="container">
+            <div class="roles-header">
+                <span class="section-label">Specializations</span>
+                <h2>Roles we fill</h2>
+                <p>Deep expertise across the modern tech stack and leadership landscape.</p>
+            </div>
+            <div class="roles-tags">
+                <span class="role-tag blue">VP of Engineering</span>
+                <span class="role-tag violet">Staff Engineer</span>
+                <span class="role-tag dark">Engineering Manager</span>
+                <span class="role-tag blue">Principal Architect</span>
+                <span class="role-tag violet">Head of Product</span>
+                <span class="role-tag dark">ML/AI Engineers</span>
+                <span class="role-tag blue">DevOps / SRE</span>
+                <span class="role-tag violet">Data Engineering</span>
+                <span class="role-tag dark">Security Engineers</span>
+                <span class="role-tag blue">Technical Program Managers</span>
+                <span class="role-tag violet">CTO / CPO</span>
+                <span class="role-tag dark">Frontend Specialists</span>
+                <span class="role-tag blue">Backend Engineers</span>
+                <span class="role-tag violet">Full-Stack Leads</span>
+                <span class="role-tag dark">Platform Engineers</span>
+            </div>
+        </div>
+    </section>
+    <!-- Engagement Models Section -->
+    <section class="engagement-section">
+        <div class="container">
+            <div class="engagement-header">
+                <span class="section-label">Work With Us</span>
+                <h2>Engagement models</h2>
+            </div>
+            <div class="engagement-grid">
+                <div class="engagement-card">
+                    <h3>Contingency</h3>
+                    <div class="price">Pay on success</div>
+                    <p>Standard search for individual contributor and manager-level roles.</p>
+                    <ul class="engagement-features">
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            No upfront cost
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Fee on successful hire
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            90-day replacement guarantee
+                        </li>
+                    </ul>
+                    <a href="#contact" class="engagement-btn secondary">Learn More</a>
+                </div>
+                <div class="engagement-card featured">
+                    <h3>Retained Search</h3>
+                    <div class="price">Strategic partnership</div>
+                    <p>For executive and critical roles requiring dedicated focus.</p>
+                    <ul class="engagement-features">
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Dedicated search team
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Full market mapping
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Competitive intelligence
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            12-month guarantee
+                        </li>
+                    </ul>
+                    <a href="#contact" class="engagement-btn primary">Get Started</a>
+                </div>
+                <div class="engagement-card">
+                    <h3>Embedded RPO</h3>
+                    <div class="price">Monthly retainer</div>
+                    <p>Scale your hiring capacity with dedicated recruiting support.</p>
+                    <ul class="engagement-features">
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Embedded recruiter(s)
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Flexible scaling
+                        </li>
+                        <li>
+                            <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Process optimization
+                        </li>
+                    </ul>
+                    <a href="#contact" class="engagement-btn secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to hire exceptional talent?</h2>
+                <p>Let's discuss your hiring challenges and how Sapiena can help you build a world-class team.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:hello@sapiena.com" class="btn-primary">
+                        Schedule a Call
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="mailto:hello@sapiena.com" class="btn-secondary">hello@sapiena.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Sapiena<span>.</span></a>
+                    <p>Elite tech recruiting for companies building the future. We find the people who make the difference.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Executive Search</a></li>
+                        <li><a href="#">Team Build-Out</a></li>
+                        <li><a href="#">Retained Search</a></li>
+                        <li><a href="#">Embedded RPO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@sapiena.com">hello@sapiena.com</a></li>
+                        <li><a href="#">San Francisco, CA</a></li>
+                        <li><a href="#">New York, NY</a></li>
+                        <li><a href="#">London, UK</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sapiena. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // Animate metrics on scroll
+        const observerOptions = {
+            threshold: 0.5
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.metric-card, .service-card, .why-card, .testimonial-card, .engagement-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+fonts.googleapis.com
+fonts.gstatic.com
+w3.org
